@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Controlas tu móvil o él a ti? | Entornos Virtuales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#4f46e5',
+                            accent: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 5px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">E</div>
+                    <span class="font-heading font-bold text-xl text-slate-800">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </a>
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">← Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-purple-600 bg-purple-50 px-3 py-1.5 rounded-full">Reflexión</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-6 mb-6">
+                    ¿Controlas tu móvil o él a ti?
+                </h1>
+                <div class="flex items-center gap-4 text-slate-500 text-sm">
+                    <span>⏱️ 10 min de lectura</span>
+                    <span>•</span>
+                    <span>📅 Diciembre 2025</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://www.programadesconecta.com/wp-content/uploads/2023/11/quitar-adiccion-movil-redes-sociales-jovenes.jpg" alt="Adicción móvil" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Main Content Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Table of Contents -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-6">
+                        <!-- Progress Bar -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Progreso de lectura</p>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div id="progressBar" class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Desplázate para ver tu progreso</p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-sm border border-purple-200">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="text-lg">📑</span> Tabla de Contenidos
+                            </h3>
+                            <ul id="toc" class="space-y-3 text-sm">
+                                <li><a href="#test" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Test rápido</a></li>
+                                <li><a href="#causas" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Por qué ocurre</a></li>
+                                <li><a href="#plan" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Plan 7 días</a></li>
+                                <li><a href="#herramientas" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Herramientas</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Share -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Compartir</p>
+                            <div class="flex gap-2">
+                                <button onclick="shareOnFacebook()" class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">F</button>
+                                <button onclick="shareOnTwitter()" class="flex-1 p-2 bg-sky-500 text-white rounded-lg text-xs font-semibold hover:bg-sky-600 transition">𝕏</button>
+                                <button onclick="shareOnWhatsApp()" class="flex-1 p-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition">Wa</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                        <p class="text-xl text-slate-700 font-medium leading-relaxed">
+                            Desbloqueas tu teléfono "solo para ver la hora". Tres horas después, sigues scrolleando. Si esto te resulta familiar, no estás solo. Pero es hora de preguntarte: ¿tú controlas tu dispositivo, o él te controla a ti?
+                        </p>
+                        
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">📊 Datos que impactan</p>
+                            <p class="text-sm">El usuario promedio revisa su teléfono 96 veces al día. Pasamos 4.5 horas diarias en nuestros dispositivos móviles.</p>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="test">Test rápido: ¿Eres adicto a tu móvil?</h2>
+                        <p>Responde honestamente sí o no:</p>
+                        <ul class="list-none space-y-3 my-6">
+                            <li class="flex items-start"><span class="mr-3 text-xl">📱</span><span>¿Lo primero que haces al despertar es revisar tu teléfono?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">😰</span><span>¿Sientes ansiedad cuando no encuentras tu teléfono?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">🍽️</span><span>¿Revisas tu móvil mientras comes con familia?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">🛏️</span><span>¿Usas tu teléfono en la cama antes de dormir?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">🚗</span><span>¿Has revisado notificaciones mientras conduces?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">⏰</span><span>¿Pierdes la noción del tiempo con tu móvil?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">📚</span><span>¿Te cuesta concentrarte sin revisar tu teléfono?</span></li>
+                            <li class="flex items-start"><span class="mr-3 text-xl">😴</span><span>¿Has perdido horas de sueño por tu móvil?</span></li>
+                        </ul>
+                        
+                        <div class="bg-gradient-to-r from-purple-100 to-pink-100 p-6 rounded-xl my-6">
+                            <h4 class="font-bold text-slate-900 mb-3">Resultados:</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><strong>0-2 es:</strong> Buen control.</li>
+                                <li><strong>3-5 es:</strong> Zona de alerta.</li>
+                                <li><strong>6+ es:</strong> Necesitas un detox urgente.</li>
+                            </ul>
+                        </div>
+
+                        <div class="my-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://psybilbo.com/wp-content/uploads/2023/10/adiccion-al-movil.jpg" alt="Tiempo frente a pantallas" class="w-full h-auto object-cover">
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="causas">¿Por qué es tan difícil soltarlo?</h2>
+                        <p>Las aplicaciones están diseñadas para ser adictivas. No es tu culpa, pero sí es tu responsabilidad:</p>
+                        
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">1. El efecto dopamina</h3>
+                        <p>Cada like activa el centro de recompensa en tu cerebro. Es el mismo mecanismo que hace adictivos los juegos de azar.</p>
+                        
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">2. El scroll infinito</h3>
+                        <p>No hay un "fin" natural. Siempre hay más contenido.</p>
+                        
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">3. FOMO (Fear Of Missing Out)</h3>
+                        <p>El miedo a perderse algo importante. Pero poco de lo que ves es realmente urgente.</p>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">⚠️ Consecuencias reales</p>
+                            <ul class="text-sm space-y-1 ml-4">
+                                <li>• Problemas de sueño</li>
+                                <li>• Ansiedad y depresión</li>
+                                <li>• Dificultad de concentración</li>
+                                <li>• Problemas en relaciones</li>
+                                <li>• Bajo rendimiento</li>
+                            </ul>
+                        </div>
+
+                        <div class="my-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://www.bbva.com/wp-content/uploads/2019/05/Nomofobia-o-adiccion-al-celular-phubbing-1.jpg" alt="Plan de bienestar" class="w-full h-auto object-cover">
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="plan">Plan Detox Digital: 7 días</h2>
+                        
+                        <div class="space-y-4 my-8">
+                            <div class="bg-white border-2 border-purple-200 rounded-xl p-5">
+                                <h4 class="font-bold text-slate-900 mb-2">Día 1-2: Autoconocimiento</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>✓ Revisa tu tiempo de pantalla</li>
+                                    <li>✓ Identifica tus 3 apps más usadas</li>
+                                    <li>✓ Anota desbloqueos del móvil</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border-2 border-purple-200 rounded-xl p-5">
+                                <h4 class="font-bold text-slate-900 mb-2">Día 3-4: Configuración</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>✓ Desactiva notificaciones no esenciales</li>
+                                    <li>✓ Elimina apps que no usas</li>
+                                    <li>✓ Activa "No molestar" por las noches</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border-2 border-purple-200 rounded-xl p-5">
+                                <h4 class="font-bold text-slate-900 mb-2">Día 5-6: Nuevos hábitos</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>✓ No uses móvil la primera hora</li>
+                                    <li>✓ "Zonas libres de móvil"</li>
+                                    <li>✓ Despertador físico</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white border-2 border-purple-200 rounded-xl p-5">
+                                <h4 class="font-bold text-slate-900 mb-2">Día 7: Evaluación</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>✓ Compara resultados</li>
+                                    <li>✓ Identifica qué funcionó</li>
+                                    <li>✓ Celebra tus logros</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="herramientas">Herramientas que ayudan</h2>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>Forest:</strong> Árboles que crecen mientras no usas tu móvil</li>
+                            <li><strong>One Sec:</strong> Pausa antes de abrir apps</li>
+                            <li><strong>Freedom:</strong> Bloquea apps y sitios web</li>
+                            <li><strong>Bienestar Digital:</strong> Herramienta nativa de Android</li>
+                        </ul>
+                        
+                        <div class="bg-gradient-to-r from-brand-primary to-brand-accent text-white p-8 rounded-2xl mt-10">
+                            <h3 class="text-2xl font-bold mb-4">El desafío final</h3>
+                            <p class="mb-4">Te reto a hacer "digital sunset": apaga tu móvil 2 horas antes de dormir.</p>
+                            <p class="text-purple-100">¿El premio? Mejor sueño, más energía, relaciones más profundas. 💪</p>
+                        </div>
+                        
+                        <p class="text-lg font-semibold text-slate-800 mt-8">
+                            Recuerda: La tecnología debe ser una herramienta que mejora tu vida, no una cadena. ✨
+                        </p>
+                    </div>
+
+<!-- Recommended Articles -->
+<div class="mt-16 pt-12 border-t-2 border-slate-200">
+    <h2 class="text-2xl font-bold text-slate-900 mb-8">📚 Artículos recomendados</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Artículo 1 -->
+        <a href="articulo-1.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200">
+            <div class="h-52 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=450&h=300&q=80"
+                     alt="Privacidad"
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4">
+                <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2 py-1 rounded inline-block mb-2">Tutorial</span>
+                <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Configura tu privacidad</h4>
+                <p class="text-xs text-slate-500 mt-1">Protege tus datos en 5 pasos.</p>
+            </div>
+        </a>
+
+        <!-- Artículo 2 -->
+        <a href="articulo-3.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200">
+            <div class="h-52 overflow-hidden">
+                <img src="https://d29jy8ovkd5kcx.cloudfront.net/wp-content/uploads/2022/08/17164912/Phishing-Nica-de-autor.jpg"
+                     alt="Phishing"
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4">
+                <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded inline-block mb-2">Seguridad</span>
+                <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Phishing: No caigas</h4>
+                <p class="text-xs text-slate-500 mt-1">Identifica y evita ataques.</p>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+                    <!-- Comments Section -->
+                    <div class="mt-16 pt-12 border-t-2 border-slate-200">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-8">💬 Comentarios</h2>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200 rounded-2xl p-8 mb-10">
+                            <h3 class="font-bold text-slate-900 mb-4">Deja tu comentario</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2">Tu nombre</label>
+                                    <input type="text" placeholder="Ej: Laura" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2">Tu comentario</label>
+                                    <textarea placeholder="¿Cuál es tu estrategia favorita?" rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:shadow-lg transition duration-300">
+                                    Publicar comentario
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="font-bold text-slate-900 text-lg">Comentarios recientes (2)</h3>
+                            
+                            <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold text-lg">P</div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <p class="font-bold text-slate-900">Pablo Martínez</p>
+                                                <p class="text-xs text-slate-500">Hace 3 días</p>
+                                            </div>
+                                            <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Verificado</span>
+                                        </div>
+                                        <p class="text-slate-700 mt-3">El plan de 7 días funcionó genial. Después de 3 días ya dormía mejor. ¡Recomendado!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white font-bold text-lg">S</div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <p class="font-bold text-slate-900">Sandra López</p>
+                                                <p class="text-xs text-slate-500">Hace 1 semana</p>
+                                            </div>
+                                            <span class="text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded">Usuario</span>
+                                        </div>
+                                        <p class="text-slate-700 mt-3">El test me ayudó a darme cuenta de que tengo un problema real. ¿Hay algún grupo?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </article>
+
+    <footer class="bg-brand-dark text-slate-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 Uso Responsable de Entornos Virtuales.</p>
+            <p class="mt-2 text-brand-primary font-semibold">Desarrollado por César Calle</p>
+        </div>
+    </footer>
+
+    <script>
+        // Progress Bar Script
+        function updateProgressBar() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercentage + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Share Functions
+        function getPageTitle() {
+            return document.querySelector('h1').textContent;
+        }
+
+        function getPageUrl() {
+            return window.location.href;
+        }
+
+        function shareOnFacebook() {
+            const url = getPageUrl();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+        }
+
+        function shareOnTwitter() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(twitterUrl, 'twitter-share', 'width=800,height=600');
+        }
+
+        function shareOnWhatsApp() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${title} - ${url}`)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

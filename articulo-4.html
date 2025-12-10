@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ciberacoso: Identifica y Responde. Guía completa sobre acoso digital, cómo prevenirlo y qué hacer si lo sufres.">
+    <meta name="keywords" content="ciberacoso, acoso digital, bullying, prevención, apoyo">
+    <meta property="og:title" content="Ciberacoso: Identifica y Responde">
+    <meta property="og:description" content="Conoce qué es el ciberacoso y cómo protegerte y proteger a otros.">
+    <title>Ciberacoso: Identifica y Responde | Entornos Virtuales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#4f46e5',
+                            accent: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 5px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">E</div>
+                    <span class="font-heading font-bold text-xl text-slate-800">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </a>
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">← Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1.5 rounded-full">Prevención</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-6 mb-6">
+                    Ciberacoso: Identifica y Responde
+                </h1>
+                <div class="flex items-center gap-4 text-slate-500 text-sm">
+                    <span>⏱️ 14 min de lectura</span>
+                    <span>•</span>
+                    <span>📅 Diciembre 2025</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://lordkelvin.edu.pe/wp-content/uploads/2021/06/ciberacoso-2-1024x576.jpg" alt="Acoso digital" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Main Content Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Table of Contents -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-6">
+                        <!-- Progress Bar -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Progreso de lectura</p>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div id="progressBar" class="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Desplázate para ver tu progreso</p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 shadow-sm border border-orange-200">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="text-lg">📑</span> Tabla de Contenidos
+                            </h3>
+                            <ul id="toc" class="space-y-3 text-sm">
+                                <li><a href="#queesciberacoso" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Qué es?</a></li>
+                                <li><a href="#diferencias" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> vs. Bullying</a></li>
+                                <li><a href="#identificar" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Identificar</a></li>
+                                <li><a href="#pasos" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Si Eres Víctima</a></li>
+                                <li><a href="#prevenir" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Prevenir</a></li>
+                                <li><a href="#testigo" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Si Eres Testigo</a></li>
+                                <li><a href="#apoyo" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Recursos</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Share -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Compartir</p>
+                            <div class="flex gap-2">
+                                <button onclick="shareOnFacebook()" class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">F</button>
+                                <button onclick="shareOnTwitter()" class="flex-1 p-2 bg-sky-500 text-white rounded-lg text-xs font-semibold hover:bg-sky-600 transition">𝕏</button>
+                                <button onclick="shareOnWhatsApp()" class="flex-1 p-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition">Wa</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                        <h2 class="text-3xl font-bold text-slate-900 mt-0" id="queesciberacoso">¿Qué es el Ciberacoso?</h2>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">😢 Dato importante</p>
+                            <p class="text-sm">Según estudios, 1 de cada 3 adolescentes ha experimentado o presenciado ciberacoso. El 59% de los padres desconoce que sus hijos están siendo acosados en línea.</p>
+                        </div>
+
+                        <p>El ciberacoso (o "cyberbullying") es el uso deliberado de medios digitales para acosar, intimidar, humiliar o amenazar a otra persona. Incluye:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Mensajes amenazantes o insultantes</li>
+                            <li>Difusión de rumores o información falsa</li>
+                            <li>Compartir fotos o vídeos sin consentimiento</li>
+                            <li>Exclusión intencional de grupos o eventos</li>
+                            <li>Suplantación de identidad</li>
+                            <li>Exposición de información privada</li>
+                            <li>Amenazas de autolesión o suicidio</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="diferencias">Diferencias con el Bullying Tradicional</h2>
+                        <div class="overflow-x-auto my-8">
+                            <table class="w-full text-left text-sm">
+                                <thead>
+                                    <tr class="bg-orange-100">
+                                        <th class="p-3 font-bold">Aspecto</th>
+                                        <th class="p-3 font-bold">Bullying</th>
+                                        <th class="p-3 font-bold">Ciberacoso</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <tr class="border-b"><td class="p-3">Alcance</td><td class="p-3">Local (escuela)</td><td class="p-3">Global (viral)</td></tr>
+                                    <tr class="border-b"><td class="p-3">Horario</td><td class="p-3">Durante horas escolares</td><td class="p-3">24/7</td></tr>
+                                    <tr class="border-b"><td class="p-3">Registro</td><td class="p-3">No hay registro</td><td class="p-3">Permanente (puede probarse)</td></tr>
+                                    <tr class="border-b"><td class="p-3">Anónimo</td><td class="p-3">No (cara a cara)</td><td class="p-3">Frecuentemente anónimo</td></tr>
+                                    <tr><td class="p-3">Público</td><td class="p-3">Puede serlo</td><td class="p-3">Siempre público</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="identificar">¿Cómo Identificar si Estoy Siendo Acosado?</h2>
+                        
+                        <div class="bg-blue-50 p-6 rounded-xl my-6 border border-blue-200">
+                            <h4 class="font-bold text-slate-900 mb-3">🚩 Señales de Alerta:</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>✗ Recibes mensajes hostiles, insultantes o amenazantes</li>
+                                <li>✗ Comentarios negativos recurrentes en tus publicaciones</li>
+                                <li>✗ Burlas sobre tu apariencia, identidad, orientación sexual o religión</li>
+                                <li>✗ Compartición no consentida de fotos o información privada</li>
+                                <li>✗ Exclusión deliberada de grupos o eventos</li>
+                                <li>✗ Creación de cuentas falsas que se hacen pasar por ti</li>
+                                <li>✗ Doxxing: publicación de tu información personal (dirección, número telefónico)</li>
+                                <li>✗ Cambios en tu comportamiento, depresión o ansiedad</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="pasos">Si Eres Víctima: Pasos Inmediatos</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">1️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Detén el contacto</h4>
+                                    <p class="text-sm">No respondas, no reacts. Bloquea al acosador en todas las redes sociales.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">2️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Guarda pruebas</h4>
+                                    <p class="text-sm">Haz capturas de pantalla, descarga vídeos. Todo debe estar documentado.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">3️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Reporta en la plataforma</h4>
+                                    <p class="text-sm">Usa las herramientas de reporte nativo (Facebook, TikTok, Instagram, Twitter).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">4️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Informa a un adulto</h4>
+                                    <p class="text-sm">Cuéntale a tus padres, profesor o un adulto de confianza. No es debilidad.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">5️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Considera denunciar legalmente</h4>
+                                    <p class="text-sm">Si es grave (amenazas, sexting no consentido), presenta un reporte con la policía.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="prevenir">Cómo Prevenir el Ciberacoso</h2>
+                        
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <h4 class="font-bold text-slate-900 mb-4">✅ Medidas Preventivas:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li><strong>Privacidad fuerte:</strong> Revisa tus configuraciones de privacidad. Quién puede ver tus posts, mensajes, información.</li>
+                                <li><strong>Información limitada:</strong> No compartas información personal (dirección, número de teléfono, horarios de clase).</li>
+                                <li><strong>Amistades selectas:</strong> Acepta solo amistades que realmente conoces.</li>
+                                <li><strong>Filtro de comentarios:</strong> Activar filtros en Instagram, TikTok para evitar bots y cuentas sospechosas.</li>
+                                <li><strong>Evita provocaciones:</strong> No publiques contenido que pueda ofender o provocar.</li>
+                                <li><strong>Desconexión digital:</strong> Establece horas sin teléfono. Tómate descansos de redes sociales.</li>
+                                <li><strong>Comunidad positiva:</strong> Rodéate de personas respetuosas. La comunidad online que frecuentes importa.</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="testigo">Si Eres Testigo</h2>
+                        
+                        <p>Ver a alguien siendo acosado en línea es difícil. Aquí está lo que puedes hacer:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>No participar:</strong> No hagas "like", no comentes, no compartas el contenido acosador.</li>
+                            <li><strong>Ofrece apoyo:</strong> Envía un mensaje privado a la víctima ofreciendo tu apoyo.</li>
+                            <li><strong>Reporta:</strong> Usa las herramientas de reporte de la plataforma.</li>
+                            <li><strong>Defiende:</strong> Comenta algo positivo en respuesta al acoso (pero con cuidado de no escalar).</li>
+                            <li><strong>Avisa a un adulto:</strong> Informa a padres o educadores si es grave.</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="apoyo">Recursos y Líneas de Ayuda</h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+                            <div class="p-4 bg-orange-50 rounded-lg border border-orange-200">
+                                <h4 class="font-bold text-slate-900 mb-2">🆘 Teléfono de la Esperanza</h4>
+                                <p class="text-sm text-slate-600">Atención 24h en crisis emocionales</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border border-orange-200">
+                                <h4 class="font-bold text-slate-900 mb-2">💬 Ciberseguridad Perú</h4>
+                                <p class="text-sm text-slate-600">Reporte de delitos cibernéticos</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border border-orange-200">
+                                <h4 class="font-bold text-slate-900 mb-2">👥 Línea PAS</h4>
+                                <p class="text-sm text-slate-600">Apoyo psicológico para jóvenes</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border border-orange-200">
+                                <h4 class="font-bold text-slate-900 mb-2">🛡️ INCIBE</h4>
+                                <p class="text-sm text-slate-600">Seguridad en Internet (España/Latam)</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+<!-- Recommended Articles -->
+<div class="mt-16 pt-12 border-t border-slate-200">
+    <h3 class="text-2xl font-bold text-slate-900 mb-8">📚 Artículos Recomendados</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Article Card 1 -->
+        <a href="articulo-3.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://d29jy8ovkd5kcx.cloudfront.net/wp-content/uploads/2022/08/17164912/Phishing-Nica-de-autor.jpg"
+                     alt="Phishing"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Phishing: No Caigas</h4>
+            <p class="text-sm text-slate-600">Aprende a identificar estafas en línea</p>
+        </a>
+
+        <!-- Article Card 2 -->
+        <a href="articulo-5.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://misinforeview.hks.harvard.edu/wp-content/uploads/2022/07/fake-news-g1bc0f9637_1920.jpg"
+                     alt="Fake News"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Fake News: Verdad vs Mentira</h4>
+            <p class="text-sm text-slate-600">Cómo detectar información falsa</p>
+        </a>
+
+    </div>
+</div>
+
+            <!-- Comments Section -->
+            <div class="mt-16 pt-12 border-t border-slate-200">
+                <h3 class="text-2xl font-bold text-slate-900 mb-8">💬 Comentarios</h3>
+                
+                <!-- Comment Form -->
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-8 rounded-xl border border-orange-200 mb-8">
+                    <h4 class="font-bold text-slate-900 mb-4">Deja tu comentario</h4>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-orange-500">
+                        <textarea placeholder="Tu comentario..." rows="4" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-orange-500"></textarea>
+                        <button type="submit" class="px-6 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition">Publicar Comentario</button>
+                    </form>
+                </div>
+
+                <!-- Comments List -->
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">A</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Alejandra Ruiz</h4>
+                                        <p class="text-xs text-slate-500">14 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">Pasé por esto hace dos años. Esto es completamente cierto. El ciberacoso destruyó mi autoestima. Gracias por este artículo que me hubiera ayudado mucho en ese momento. Espero que otros adolescentes lo lean.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">M</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Mamá preocupada</h4>
+                                        <p class="text-xs text-slate-500">12 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">Mi hijo pasó por esto. Como padre, no sabía ni dónde empezar. ¿Hay algún recurso específico de psicólogo especializado en ciberacoso que recomienden? Esto fue muy útil.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Uso Responsable de Entornos Virtuales. Todos los derechos reservados.</p>
+            <p class="mt-2 text-brand-primary font-semibold">
+                Desarrollado por César Calle – Full-Stack Developer
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function updateProgressBar() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercentage + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Share Functions
+        function getPageTitle() {
+            return document.querySelector('h1').textContent;
+        }
+
+        function getPageUrl() {
+            return window.location.href;
+        }
+
+        function shareOnFacebook() {
+            const url = getPageUrl();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+        }
+
+        function shareOnTwitter() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(twitterUrl, 'twitter-share', 'width=800,height=600');
+        }
+
+        function shareOnWhatsApp() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${title} - ${url}`)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

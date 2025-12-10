@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tu Huella Digital: Lo que Dejas Atrás. Descubre por qué tu presencia en línea importa para tu futuro profesional y personal.">
+    <meta name="keywords" content="huella digital, reputación online, internet permanente, futuro profesional">
+    <meta property="og:title" content="Tu Huella Digital: Lo que Dejas Atrás">
+    <meta property="og:description" content="Guía sobre cómo tu presencia digital afecta tu futuro.">
+    <title>Tu Huella Digital: Lo que Dejas Atrás | Entornos Virtuales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#4f46e5',
+                            accent: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 5px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">E</div>
+                    <span class="font-heading font-bold text-xl text-slate-800">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </a>
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">← Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full">Tutorial</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-6 mb-6">
+                    Tu Huella Digital: Lo que Dejas Atrás
+                </h1>
+                <div class="flex items-center gap-4 text-slate-500 text-sm">
+                    <span>⏱️ 13 min de lectura</span>
+                    <span>•</span>
+                    <span>📅 Diciembre 2025</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://media.es.wired.com/photos/639ccac36bdaaed6a29421f5/16:9/w_2560%2Cc_limit/Huella-digital-738789045.jpg" alt="Huella digital en internet" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Main Content Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Table of Contents -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-6">
+                        <!-- Progress Bar -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Progreso de lectura</p>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div id="progressBar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Desplázate para ver tu progreso</p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 shadow-sm border border-indigo-200">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="text-lg">📑</span> Tabla de Contenidos
+                            </h3>
+                            <ul id="toc" class="space-y-3 text-sm">
+                                <li><a href="#queeshuela" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Qué es?</a></li>
+                                <li><a href="#tipos" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Tipos</a></li>
+                                <li><a href="#importancia" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Por qué?</a></li>
+                                <li><a href="#permanencia" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Permanencia</a></li>
+                                <li><a href="#construir" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Construir</a></li>
+                                <li><a href="#auditoria" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Auditoría</a></li>
+                                <li><a href="#limpiar" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Limpiar</a></li>
+                                <li><a href="#futuro" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Tu Futuro</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Share -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Compartir</p>
+                            <div class="flex gap-2">
+                                <button onclick="shareOnFacebook()" class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">F</button>
+                                <button onclick="shareOnTwitter()" class="flex-1 p-2 bg-sky-500 text-white rounded-lg text-xs font-semibold hover:bg-sky-600 transition">𝕏</button>
+                                <button onclick="shareOnWhatsApp()" class="flex-1 p-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition">Wa</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                        <p class="text-xl text-slate-700 font-medium leading-relaxed">
+                            Todo lo que publicas, comentas, buscas o compartes en línea deja una "huella digital". Esta huella es prácticamente permanente, accesible y potencialmente visible para cualquiera: empleadores, universidades, amigos, extraños. Pero aquí está lo importante: tú tienes el poder de construir la tuya intencionalmente.
+                        </p>
+                        
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">🔍 Dato crítico</p>
+                            <p class="text-sm">El 93% de los reclutadores revisan el perfil de redes sociales de los candidatos antes de contratar. Tu huella digital puede darte una oportunidad o cerrarte puertas.</p>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-0" id="queeshuela">¿Qué es una Huella Digital?</h2>
+                        <p>Tu huella digital es el conjunto de datos, información, fotos, videos, comentarios y acciones que existen sobre ti en internet. Incluye:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Lo que <strong>publicas</strong> (posts, fotos, historias)</li>
+                            <li>Lo que <strong>comentas</strong> (opiniones, debates)</li>
+                            <li>Tus <strong>búsquedas</strong> y historial de navegación</li>
+                            <li>Lo que <strong>otros publican sobre ti</strong></li>
+                            <li>Tu <strong>información profesional</strong> (LinkedIn, portafolio)</li>
+                            <li>Tus <strong>actividades online</strong> (likes, shares, retweets)</li>
+                            <li>Tu <strong>información personal</strong> registrada en sitios</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="tipos">Tipos de Huella Digital</h2>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">🔴 Huella Activa</h3>
+                        <p>Lo que <strong>deliberadamente</strong> publicas o compartes. Ejemplo: tu foto de perfil, tus posts, videos que subes, comentarios.</p>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">🔵 Huella Pasiva</h3>
+                        <p>Lo que se recopila sobre ti <strong>sin tu conocimiento directo</strong>. Ejemplo: cookies de navegación, datos de ubicación, algoritmos que analizan tu comportamiento.</p>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="importancia">¿Por Qué Tu Huella Digital Importa?</h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 my-8">
+                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                                <h4 class="font-bold text-slate-900 mb-3">💼 Profesional</h4>
+                                <p class="text-sm">Reclutadores, universidades y clientes revisan tu perfil online. Una huella positiva te abre puertas.</p>
+                            </div>
+                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                                <h4 class="font-bold text-slate-900 mb-3">🛡️ Seguridad</h4>
+                                <p class="text-sm">Información personal expuesta puede ser usada en fraude, suplantación de identidad, acoso.</p>
+                            </div>
+                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                                <h4 class="font-bold text-slate-900 mb-3">🎓 Reputación</h4>
+                                <p class="text-sm">Lo que publicas hoy puede afectarte mañana. Empleadores y amigos verán tu historial.</p>
+                            </div>
+                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                                <h4 class="font-bold text-slate-900 mb-3">⚖️ Legal</h4>
+                                <p class="text-sm">Publicar información falsa, contenido ofensivo o ilegal tiene consecuencias legales.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="permanencia">La Permanencia de Internet</h2>
+                        
+                        <div class="bg-red-50 p-6 rounded-xl border border-red-200 my-6">
+                            <h4 class="font-bold text-slate-900 mb-3">⚠️ Recuerda:</h4>
+                            <p class="text-sm mb-3">El dicho "lo que publicas en internet es para siempre" tiene verdad. Aunque borres algo:</p>
+                            <ul class="text-sm space-y-2">
+                                <li>✗ Otros pueden haber tomado pantallazos</li>
+                                <li>✗ Motores de búsqueda cachearon la página</li>
+                                <li>✗ Los servidores guardaron copias</li>
+                                <li>✗ Periodistas pueden haber archivado tu contenido</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="construir">Cómo Construir una Huella Digital Positiva</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-500">
+                                <span class="text-2xl flex-shrink-0">✅</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Publica contenido de valor</h4>
+                                    <p class="text-sm">Comparte cosas que te interesen profesionalmente, aprende en público, ayuda a otros.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-500">
+                                <span class="text-2xl flex-shrink-0">✅</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Sé respetuoso y empático</h4>
+                                    <p class="text-sm">Comenta con respeto. El ciberacoso y los comentarios negativos se recuerdan.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-500">
+                                <span class="text-2xl flex-shrink-0">✅</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Crea presencia profesional</h4>
+                                    <p class="text-sm">LinkedIn, portafolio, blog. Muestra tus habilidades y experiencia.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-500">
+                                <span class="text-2xl flex-shrink-0">✅</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Revisar privacidad regularmente</h4>
+                                    <p class="text-sm">Las redes sociales cambian configuraciones. Audita tus privacidades cada trimestre.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-indigo-500">
+                                <span class="text-2xl flex-shrink-0">✅</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Piensa antes de publicar</h4>
+                                    <p class="text-sm">"¿Querría que un empleador vea esto?" Si la respuesta es no, no lo publiques.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="auditoria">Auditoría: Revisa Tu Huella Actual</h2>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-200 my-6">
+                            <h4 class="font-bold text-slate-900 mb-4">🔍 Paso a Paso:</h4>
+                            <ol class="space-y-3 text-sm">
+                                <li><strong>1. Googléate:</strong> Busca tu nombre completo en Google. ¿Qué aparece? ¿Deseas que eso sea tu primer resultado?</li>
+                                <li><strong>2. Revisa cada red social:</strong> Instagram, TikTok, Facebook, Twitter. ¿Qué ve alguien en tu perfil?</li>
+                                <li><strong>3. Busca menciones:</strong> Usa comandos como "site:twitter.com yourname" para ver dónde se te menciona.</li>
+                                <li><strong>4. Verifica privacidad:</strong> ¿Quién puede ver tus posts? ¿Tu historial de amigos? ¿Tu correo?</li>
+                                <li><strong>5. Revisa datos personales:</strong> En sitios como Pipl.com o MyLife.com, verifica qué información tiene sobre ti.</li>
+                            </ol>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="limpiar">Cómo Limpiar tu Huella Digital</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-slate-900">🧹 Paso 1: Elimina Publicaciones</h4>
+                                <p class="text-sm">Revisa tus viejos posts. Si hay algo que no refleja quién eres ahora, elimínalo.</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-slate-900">🔐 Paso 2: Ajusta Privacidad</h4>
+                                <p class="text-sm">Haz privados tus perfiles, limita quién ve tu información, desactiva etiquetado automático.</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-slate-900">🔗 Paso 3: Solicita Deleción</h4>
+                                <p class="text-sm">Si sitios han recopilado datos, solicita que eliminen información bajo GDPR o leyes locales.</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-slate-900">📋 Paso 4: Gestiona Menciones</h4>
+                                <p class="text-sm">Pide que otros eliminen fotos tuyas o informaciones que no quieres públicas.</p>
+                            </div>
+                            <div class="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-bold text-slate-900">⭐ Paso 5: Construye Positiva</h4>
+                                <p class="text-sm">Crea contenido nuevo, profesional y positivo para reemplazar lo viejo en búsquedas.</p>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="futuro">Tu Futuro Está en Tus Manos</h2>
+                        
+                        <p class="text-lg text-slate-700 bg-indigo-50 p-6 rounded-xl border border-indigo-200">
+                            Tu huella digital es una extensión de ti en el mundo digital. A diferencia de otros aspectos de tu vida, TIENES CONTROL total sobre qué construyes y cómo quieres ser percibido. 
+                        </p>
+                        <p>
+                            No se trata de ser perfecto en línea. Se trata de ser <strong>intencional</strong>. Cada post, comentario y acción digital es una oportunidad para construir una versión de ti que reflejes quién eres o quién quieres ser.
+                        </p>
+                        <p>
+                            Los adolescentes y jóvenes de hoy están construyendo digitalmente un legado que los acompañará décadas. Hazlo concientemente. Tu futuro te lo agradecerá.
+                        </p>
+                    </div>
+                </main>
+            </div>
+
+<!-- Recommended Articles -->
+<div class="mt-16 pt-12 border-t border-slate-200">
+    <h3 class="text-2xl font-bold text-slate-900 mb-8">📚 Artículos Recomendados</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Article Card 1 -->
+        <a href="articulo-5.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://www.coe.int/documents/16695/264502602/0/5e531eb1-f367-a910-24ea-05247119583d"
+                     alt="Fake News"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Fake News: Después de Publicar, Piensa</h4>
+            <p class="text-sm text-slate-600">Verifica antes de compartir</p>
+        </a>
+
+        <!-- Article Card 2 -->
+        <a href="articulo-1.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                     alt="Privacidad"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Configura tu Privacidad</h4>
+            <p class="text-sm text-slate-600">Protege tus datos personales</p>
+        </a>
+
+    </div>
+</div>
+
+
+            <!-- Comments Section -->
+            <div class="mt-16 pt-12 border-t border-slate-200">
+                <h3 class="text-2xl font-bold text-slate-900 mb-8">💬 Comentarios</h3>
+                
+                <!-- Comment Form -->
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl border border-indigo-200 mb-8">
+                    <h4 class="font-bold text-slate-900 mb-4">Deja tu comentario</h4>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-indigo-500">
+                        <textarea placeholder="Tu comentario..." rows="4" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-indigo-500"></textarea>
+                        <button type="submit" class="px-6 py-2 bg-indigo-500 text-white rounded-lg font-semibold hover:bg-indigo-600 transition">Publicar Comentario</button>
+                    </form>
+                </div>
+
+                <!-- Comments List -->
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">A</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Ana Martínez</h4>
+                                        <p class="text-xs text-slate-500">25 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">Excelente artículo. Nunca había pensado en mi huella digital de esta forma. Acabo de googlearme y ¡wow! Necesito hacer cambios. Gracias por el wake-up call.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">D</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Diego López</h4>
+                                        <p class="text-xs text-slate-500">23 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">Como padre, es importante que mis hijos entiendan esto. Voy a compartir este artículo con ellos. Muchas gracias por enseñar desde edades tempranas sobre responsabilidad digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Uso Responsable de Entornos Virtuales. Todos los derechos reservados.</p>
+            <p class="mt-2 text-brand-primary font-semibold">
+                Desarrollado por César Calle – Full-Stack Developer
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function updateProgressBar() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercentage + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Share Functions
+        function getPageTitle() {
+            return document.querySelector('h1').textContent;
+        }
+
+        function getPageUrl() {
+            return window.location.href;
+        }
+
+        function shareOnFacebook() {
+            const url = getPageUrl();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+        }
+
+        function shareOnTwitter() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(twitterUrl, 'twitter-share', 'width=800,height=600');
+        }
+
+        function shareOnWhatsApp() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${title} - ${url}`)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+

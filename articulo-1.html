@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configura tu privacidad en 5 pasos | Entornos Virtuales</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#4f46e5',
+                            accent: '#06b6d4',
+                            soft: '#f8fafc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- NAV BAR -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        E
+                    </div>
+                    <span class="font-heading font-bold text-xl text-slate-800">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </a>
+                
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">← Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-3 py-1.5 rounded-full">Tutorial</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-6 mb-6">
+                    Configura tu privacidad en 5 pasos
+                </h1>
+                <div class="flex items-center gap-4 text-slate-500 text-sm">
+                    <span>⏱️ 8 min de lectura</span>
+                    <span>•</span>
+                    <span>📅 Diciembre 2025</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Privacidad Digital" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Main Content Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Table of Contents -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-6">
+                        <!-- Progress Bar -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Progreso de lectura</p>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div id="progressBar" class="bg-gradient-to-r from-brand-primary to-brand-accent h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Desplázate para ver tu progreso</p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 shadow-sm border border-indigo-200">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="text-lg">📑</span> Tabla de Contenidos
+                            </h3>
+                            <ul id="toc" class="space-y-3 text-sm">
+                                <li><a href="#paso1" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Paso 1: Privacidad</a></li>
+                                <li><a href="#paso2" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Paso 2: Etiquetado</a></li>
+                                <li><a href="#paso3" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Paso 3: Información</a></li>
+                                <li><a href="#paso4" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Paso 4: 2FA</a></li>
+                                <li><a href="#paso5" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Paso 5: Aplicaciones</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Share -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Compartir</p>
+                            <div class="flex gap-2">
+                                <button onclick="shareOnFacebook()" class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">F</button>
+                                <button onclick="shareOnTwitter()" class="flex-1 p-2 bg-sky-500 text-white rounded-lg text-xs font-semibold hover:bg-sky-600 transition">𝕏</button>
+                                <button onclick="shareOnWhatsApp()" class="flex-1 p-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition">Wa</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                        <p class="text-xl text-slate-700 font-medium leading-relaxed">
+                            En el mundo digital actual, proteger tu privacidad no es opcional, es esencial. Esta guía te mostrará cómo configurar tus redes sociales de manera segura en solo 5 pasos.
+                        </p>
+                        
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">⚠️ Dato importante</p>
+                            <p class="text-sm">Según estudios recientes, el 80% de los usuarios nunca ha revisado su configuración de privacidad desde que creó su cuenta. ¡No seas parte de esa estadística!</p>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="paso1">Paso 1: Revisa quién puede ver tu perfil</h2>
+                        <p>Lo primero que debes hacer es controlar quién tiene acceso a tu información personal. En la mayoría de redes sociales:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>Facebook:</strong> Ve a Configuración → Privacidad → ¿Quién puede ver tus futuras publicaciones? Cambia a "Amigos"</li>
+                            <li><strong>Instagram:</strong> Ve a Configuración → Privacidad → Cuenta privada (actívala)</li>
+                            <li><strong>TikTok:</strong> Configuración → Privacidad → Cuenta privada</li>
+                            <li><strong>Twitter/X:</strong> Configuración → Privacidad y seguridad → Protege tus posts</li>
+                        </ul>
+                        
+                        <div class="bg-indigo-50 p-6 rounded-xl my-6">
+                            <h4 class="font-bold text-slate-900 mb-2">💡 Consejo Pro</h4>
+                            <p class="text-sm">Haz una "limpieza" de amigos/seguidores cada 3 meses. Si no reconoces a alguien o no has interactuado con esa persona en el último año, considera eliminarlo.</p>
+                        </div>
+
+                        <div class="my-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://cdn.aarp.net/content/dam/aarp/home-and-family/personal-technology/2022/07/1140-platform-privacy-settings-esp.jpg" alt="Configuración de privacidad en redes sociales" class="w-full h-auto object-cover">
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="paso2">Paso 2: Controla el etiquetado y las menciones</h2>
+                        <p>Muchas veces, nuestra privacidad se ve comprometida no por lo que nosotros publicamos, sino por lo que otros publican sobre nosotros.</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Activa la "Revisión de etiquetas" para aprobar fotos antes de que aparezcan en tu perfil</li>
+                            <li>Limita quién puede etiquetarte en fotos y publicaciones</li>
+                            <li>Desactiva la geolocalización automática en tus publicaciones</li>
+                            <li>Revisa y elimina etiquetas antiguas que ya no quieres tener</li>
+                        </ul>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="paso3">Paso 3: Gestiona la información que compartes</h2>
+                        <p>Menos es más cuando se trata de información personal en línea. Considera ocultar o eliminar:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Tu número de teléfono</li>
+                            <li>Tu dirección de correo electrónico</li>
+                            <li>Tu fecha de nacimiento completa (mes y día están bien, pero el año es opcional)</li>
+                            <li>Tu dirección física</li>
+                            <li>Información sobre tu lugar de trabajo o estudio actual</li>
+                        </ul>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">🚨 Alerta de seguridad</p>
+                            <p class="text-sm">Nunca publiques información que pueda usarse para responder preguntas de seguridad de tus cuentas (nombre de tu mascota, ciudad natal, escuela primaria, etc.).</p>
+                        </div>
+
+                        <div class="my-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://www.stelorder.com/wp-content/uploads/2024/02/2FA-portada.jpg" alt="Seguridad en autenticación dos pasos" class="w-full h-auto object-cover">
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="paso4">Paso 4: Configura la autenticación en dos pasos</h2>
+                        <p>Esta es una de las medidas de seguridad más efectivas que puedes implementar. La autenticación en dos pasos requiere algo que sabes (tu contraseña) y algo que tienes (tu teléfono).</p>
+                        <p><strong>Cómo activarla:</strong></p>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Ve a la configuración de seguridad de cada red social</li>
+                            <li>Busca "Autenticación en dos pasos" o "Verificación en dos pasos"</li>
+                            <li>Elige tu método preferido (SMS, app de autenticación, o llave de seguridad)</li>
+                            <li>Sigue las instrucciones para completar la configuración</li>
+                        </ol>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="paso5">Paso 5: Audita las aplicaciones conectadas</h2>
+                        <p>¿Alguna vez has usado "Iniciar sesión con Facebook" o "Continuar con Google"? Estas aplicaciones de terceros pueden tener acceso a tu información.</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Revisa las aplicaciones conectadas a tus cuentas</li>
+                            <li>Elimina las que ya no uses</li>
+                            <li>Verifica los permisos que has otorgado a cada aplicación</li>
+                            <li>Revoca el acceso a aquellas que piden más información de la necesaria</li>
+                        </ul>
+
+                        <div class="my-8 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://imag.malavida.com/articulos/permisos-en-android-que-son-para-que-sirven-y-cuales-hay.jpg" alt="Permisos y aplicaciones conectadas" class="w-full h-auto object-cover">
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-brand-primary to-brand-accent text-white p-8 rounded-2xl mt-10">
+                            <h3 class="text-2xl font-bold mb-4">Checklist de privacidad</h3>
+                            <ul class="space-y-2">
+                                <li>✅ Perfil configurado como privado</li>
+                                <li>✅ Revisión de etiquetas activada</li>
+                                <li>✅ Información personal mínima visible</li>
+                                <li>✅ Autenticación en dos pasos activada</li>
+                                <li>✅ Aplicaciones de terceros revisadas</li>
+                            </ul>
+                        </div>
+                        
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12">Mantenimiento regular</h2>
+                        <p>La privacidad no es algo que configuras una vez y olvidas. Las plataformas constantemente actualizan sus políticas y configuraciones. Establece un recordatorio para revisar tu privacidad cada 3-6 meses.</p>
+                        
+                        <p class="text-lg font-semibold text-slate-800 mt-8">
+                            Recuerda: Tu información personal tiene valor. Protégela como protegerías tu billetera o tu casa. 🏠🔒
+                        </p>
+                    </div>
+
+<!-- Recommended Articles -->
+<div class="mt-16 pt-12 border-t-2 border-slate-200">
+    <h2 class="text-2xl font-bold text-slate-900 mb-8">📚 Artículos recomendados</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Artículo 1 -->
+        <a href="articulo-2.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200">
+            <div class="h-52 overflow-hidden">
+                <img src="https://images.ctfassets.net/5i1m3im8l2b5/3TyQf9seoxbjaX3vTHJaSC/3f4faa66255e75fbc2fb1b033bf0a59d/remote-access-view-control-android-phones-tablets.jpg?w=450&h=300&fl=progressive&q=85&fm=jpg&fit=fill"
+                     alt="¿Controlas tu móvil o él a ti?"
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4">
+                <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded inline-block mb-2">Reflexión</span>
+                <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">¿Controlas tu móvil o él a ti?</h4>
+                <p class="text-xs text-slate-500 mt-1">Detecta señales de adicción digital y aprende a recuperar control.</p>
+            </div>
+        </a>
+
+        <!-- Artículo 2 -->
+        <a href="articulo-3.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200">
+            <div class="h-52 overflow-hidden">
+                <img src="https://d29jy8ovkd5kcx.cloudfront.net/wp-content/uploads/2022/08/17164912/Phishing-Nica-de-autor.jpg"
+                     alt="Phishing: No caigas en la trampa"
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4">
+                <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded inline-block mb-2">Seguridad</span>
+                <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Phishing: No caigas en la trampa</h4>
+                <p class="text-xs text-slate-500 mt-1">Identifica y evita ataques de phishing que intenten robar tus datos.</p>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+                    <!-- Comments Section -->
+                    <div class="mt-16 pt-12 border-t-2 border-slate-200">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-8">💬 Comentarios</h2>
+                        
+                        <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-200 rounded-2xl p-8 mb-10">
+                            <h3 class="font-bold text-slate-900 mb-4">Deja tu comentario</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2">Tu nombre</label>
+                                    <input type="text" placeholder="Ej: Juan Pérez" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2">Tu comentario</label>
+                                    <textarea placeholder="Comparte tu experiencia, preguntas o sugerencias..." rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 resize-none"></textarea>
+                                </div>
+                                <button type="submit" class="px-6 py-2 bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold rounded-lg hover:shadow-lg transition duration-300">
+                                    Publicar comentario
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="font-bold text-slate-900 text-lg">Comentarios recientes (2)</h3>
+                            
+                            <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center text-white font-bold text-lg">M</div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <p class="font-bold text-slate-900">María López</p>
+                                                <p class="text-xs text-slate-500">Hace 2 días</p>
+                                            </div>
+                                            <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Verificado</span>
+                                        </div>
+                                        <p class="text-slate-700 mt-3">¡Excelente guía! Nunca había activado la autenticación en dos pasos. Acabo de hacerlo en todas mis cuentas. Gracias por el consejo tan práctico.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl border border-slate-200 p-6 hover:shadow-md transition">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white font-bold text-lg">J</div>
+                                    <div class="flex-1">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <p class="font-bold text-slate-900">Juan Carlos</p>
+                                                <p class="text-xs text-slate-500">Hace 1 semana</p>
+                                            </div>
+                                            <span class="text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded">Usuario</span>
+                                        </div>
+                                        <p class="text-slate-700 mt-3">¿Qué app de autenticación recomiendan? ¿Google Authenticator o Microsoft Authenticator? ¿Hay mucha diferencia entre ellas?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        // Progress Bar Script
+        function updateProgressBar() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercentage + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Share Functions
+        function getPageTitle() {
+            return document.querySelector('h1').textContent;
+        }
+
+        function getPageUrl() {
+            return window.location.href;
+        }
+
+        function shareOnFacebook() {
+            const url = getPageUrl();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+        }
+
+        function shareOnTwitter() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(twitterUrl, 'twitter-share', 'width=800,height=600');
+        }
+
+        function shareOnWhatsApp() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${title} - ${url}`)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Uso Responsable de Entornos Virtuales. Todos los derechos reservados.</p>
+            <p class="mt-2 text-brand-primary font-semibold">
+                Desarrollado por César Calle – Full-Stack Developer
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+

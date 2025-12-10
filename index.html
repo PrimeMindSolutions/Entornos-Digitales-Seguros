@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso Responsable | Entornos Virtuales</title>
+    
+    <!-- Google Fonts: Poppins (Titulos) e Inter (Cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',  // Slate 900
+                            primary: '#4f46e5', // Indigo 600
+                            accent: '#06b6d4',  // Cyan 500
+                            soft: '#f8fafc',    // Slate 50
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos base para animaciones de entrada */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Personalización de la barra de scroll */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- NAV BAR (Sticky) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        E
+                    </div>
+                    <span class="font-heading font-bold text-xl text-slate-800 tracking-tight">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#importancia" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">Importancia</a>
+                    <a href="#riesgos" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">Riesgos</a>
+                    <a href="#practicas" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">Buenas Prácticas</a>
+                    <a href="#historia" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">Caso Real</a>
+                    <a href="#blog" class="px-5 py-2.5 rounded-full bg-brand-primary text-white font-semibold text-sm shadow-lg hover:bg-indigo-700 transition hover:-translate-y-0.5 transform">
+                        Blog
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-primary focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1 shadow-xl">
+                <a href="#importancia" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-slate-50">Importancia</a>
+                <a href="#riesgos" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-slate-50">Riesgos</a>
+                <a href="#practicas" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-slate-50">Buenas Prácticas</a>
+                <a href="#historia" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-brand-primary hover:bg-slate-50">Caso Real</a>
+                <a href="#blog" class="block mt-4 px-5 py-3 text-center rounded-lg bg-brand-primary text-white font-bold">Ir al Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="relative pt-32 pb-28 lg:pt-48 lg:pb-40 overflow-hidden bg-brand-dark">
+        <!-- Progress Line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary" style="animation: pulse 2s ease-in-out infinite;"></div>
+        <!-- Background Decor -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Tech Background" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brand-dark/80 to-brand-dark"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center">
+            <!-- Text Content -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left reveal active">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 font-semibold text-sm mb-6 backdrop-blur-sm">
+                    🚀 Ciudadanía Digital Segura
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight mb-6">
+                    Uso Responsable de los <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-accent">Entornos Virtuales</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Navegar es un derecho, protegerte es una responsabilidad. Descubre cómo construir una huella digital positiva y segura en el mundo moderno.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                    <a href="#blog" class="px-8 py-4 rounded-xl bg-brand-primary text-white font-bold shadow-lg shadow-indigo-500/30 hover:bg-indigo-500 hover:-translate-y-1 transition transform flex items-center justify-center gap-2">
+                        Explorar Blog
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </a>
+                    <a href="#importancia" class="px-8 py-4 rounded-xl bg-slate-800 text-white font-bold border border-slate-700 hover:bg-slate-700 transition flex items-center justify-center">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hero Image / Illustration -->
+            <div class="w-full lg:w-1/2 mt-16 lg:mt-0 relative flex justify-center animate-float">
+                <div class="relative w-full max-w-md lg:max-w-lg aspect-square">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-primary to-brand-accent rounded-full opacity-20 blur-3xl"></div>
+                    <img src="https://ieaisa.es/wp-content/uploads/2020/03/entornos-virtuales.jpg" alt="Cybersecurity Abstract" class="relative rounded-3xl shadow-2xl border-4 border-slate-700/50 transform rotate-3 hover:rotate-0 transition duration-500 object-cover w-full h-full">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. IMPORTANCIA (3 Cards) -->
+    <section id="importancia" class="py-20 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2">Fundamentos</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-slate-900">¿Por qué es vital el uso responsable?</h3>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">La tecnología amplifica nuestras capacidades, pero requiere consciencia para evitar impactos negativos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition duration-300 group reveal">
+                    <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Seguridad y Privacidad</h4>
+                    <p class="text-slate-600 leading-relaxed">Protege tu identidad digital. Lo que subes a la red deja una huella permanente que puede afectar tu futuro.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition duration-300 group reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-xl bg-purple-100 flex items-center justify-center text-purple-600 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Bienestar Digital</h4>
+                    <p class="text-slate-600 leading-relaxed">Equilibra tu vida online y offline. Evita la dependencia tecnológica y cuida tu salud mental.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 hover:shadow-xl transition duration-300 group reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-xl bg-teal-100 flex items-center justify-center text-teal-600 mb-6 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Convivencia Ética</h4>
+                    <p class="text-slate-600 leading-relaxed">Fomenta el respeto en redes. El ciberacoso y la desinformación dañan a personas reales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. RIESGOS (Grid 4 Cards) -->
+    <section id="riesgos" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Decoración de fondo -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="text-cyan-400 font-bold tracking-wider uppercase text-sm">Alerta</span>
+                <h3 class="text-3xl md:text-5xl font-heading font-bold mt-2">Riesgos Comunes</h3>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">Conoce a los enemigos digitales para saber cómo defenderte.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Risk 1 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-red-500/50 hover:shadow-lg hover:shadow-red-500/10 hover:-translate-y-2 transition duration-300 reveal">
+                    <div class="text-red-400 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></div>
+                    <h4 class="text-xl font-bold mb-2">Ciberacoso</h4>
+                    <p class="text-slate-400 text-sm">Acoso o intimidación por medio de las tecnologías digitales. Puede ocurrir en redes sociales y juegos.</p>
+                </div>
+
+                <!-- Risk 2 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-2 transition duration-300 reveal" style="transition-delay: 100ms;">
+                    <div class="text-orange-400 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                    <h4 class="text-xl font-bold mb-2">Phishing</h4>
+                    <p class="text-slate-400 text-sm">Técnica engañosa para robar datos personales como contraseñas y números de tarjetas de crédito.</p>
+                </div>
+
+                <!-- Risk 3 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-yellow-500/50 hover:shadow-lg hover:shadow-yellow-500/10 hover:-translate-y-2 transition duration-300 reveal" style="transition-delay: 200ms;">
+                    <div class="text-yellow-400 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg></div>
+                    <h4 class="text-xl font-bold mb-2">Suplantación</h4>
+                    <p class="text-slate-400 text-sm">Hacerse pasar por otra persona para cometer fraudes o dañar la reputación de la víctima.</p>
+                </div>
+
+                <!-- Risk 4 -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:border-indigo-500/50 hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-2 transition duration-300 reveal" style="transition-delay: 300ms;">
+                    <div class="text-indigo-400 mb-4"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h4 class="text-xl font-bold mb-2">Adicción Digital</h4>
+                    <p class="text-slate-400 text-sm">Uso compulsivo de dispositivos que interfiere con la vida diaria, el trabajo y las relaciones personales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BUENAS PRÁCTICAS (Table/Grid) -->
+    <section id="practicas" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12 reveal">
+                <div>
+                    <h3 class="text-3xl font-heading font-bold text-slate-900">Decálogo de Buenas Prácticas</h3>
+                    <p class="text-slate-500 mt-2">Recomendaciones para una vida digital saludable.</p>
+                </div>
+                <div class="mt-4 md:mt-0 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Verificado por Expertos
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <!-- Práctica 1 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">1</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Contraseñas Robustas</h5>
+                        <p class="text-slate-600 text-sm mt-1">Usa combinaciones de letras, números y símbolos. No uses la misma para todo.</p>
+                    </div>
+                </div>
+
+                <!-- Práctica 2 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">2</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Privacidad en Redes</h5>
+                        <p class="text-slate-600 text-sm mt-1">Configura tus perfiles como privados. Acepta solo a gente que conoces realmente.</p>
+                    </div>
+                </div>
+
+                <!-- Práctica 3 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">3</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Verifica la Información</h5>
+                        <p class="text-slate-600 text-sm mt-1">No compartas noticias falsas. Contrasta fuentes antes de difundir.</p>
+                    </div>
+                </div>
+
+                <!-- Práctica 4 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">4</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Desconexión Digital</h5>
+                        <p class="text-slate-600 text-sm mt-1">Establece horarios sin pantallas, especialmente antes de dormir.</p>
+                    </div>
+                </div>
+
+                <!-- Práctica 5 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">5</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Empatía Digital</h5>
+                        <p class="text-slate-600 text-sm mt-1">Antes de comentar, piensa: ¿Diría esto cara a cara? Trata a otros con respeto.</p>
+                    </div>
+                </div>
+
+                <!-- Práctica 6 -->
+                <div class="flex items-start reveal">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center text-brand-primary font-bold text-xl mr-4">6</div>
+                    <div>
+                        <h5 class="text-lg font-bold text-slate-900">Actualiza tu Software</h5>
+                        <p class="text-slate-600 text-sm mt-1">Mantén tu sistema operativo y antivirus al día para tapar brechas de seguridad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. STORYTELLING (Caso Don Bosco) -->
+    <section id="historia" class="py-24 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row reveal">
+                <!-- Imagen -->
+                <div class="lg:w-1/2 relative min-h-[400px]">
+                    <img src="https://salesianospiura.edu.pe/wp-content/uploads/2025/09/250912-infraestructura-037.jpg" alt="Estudiante pensando" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-indigo-900/40 mix-blend-multiply"></div>
+                </div>
+                
+                <!-- Contenido -->
+                <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <span class="text-brand-primary font-bold tracking-widest uppercase text-xs mb-4">Caso de Estudio</span>
+                    <h3 class="text-3xl font-heading font-bold text-slate-900 mb-6">El Caso del Estudiante del Don Bosco</h3>
+                    <div class="prose text-slate-600 mb-8 space-y-4">
+                        <p>
+                            En los pasillos del colegio Don Bosco, la tecnología siempre fue vista como una herramienta de progreso. Sin embargo, "Juan", un estudiante brillante de secundaria, aprendió una lección valiosa sobre la huella digital de la manera difícil.
+                        </p>
+                        <p>
+                            Todo comenzó con una publicación impulsiva en redes sociales. Lo que parecía una broma inofensiva se viralizó dentro de la comunidad escolar, afectando su reputación y la confianza de sus compañeros.
+                        </p>
+                        <p class="font-medium text-slate-800">
+                            A través de la mediación y el aprendizaje sobre ciudadanía digital, Juan transformó su experiencia en liderazgo, enseñando ahora a otros jóvenes sobre el poder de nuestras acciones virtuales.
+                        </p>
+                    </div>
+                    <button onclick="openStory()" class="self-start text-brand-primary font-bold hover:text-indigo-800 transition flex items-center gap-2 group">
+                        Leer historia completa
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Historia Completa -->
+    <div id="storyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button onclick="closeStory()" class="absolute top-4 right-4 w-10 h-10 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition z-10">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="p-8 md:p-12">
+                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">Historia Completa</span>
+                <h2 class="text-4xl font-heading font-bold text-slate-900 mt-2 mb-6">La Transformación Digital de Juan</h2>
+                
+                <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                    <p class="text-xl text-slate-700 font-medium leading-relaxed">
+                        Esta es la historia real de cómo un error en redes sociales se convirtió en una poderosa lección de vida para toda una comunidad educativa.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">El Inicio: Una Broma que se Salió de Control</h3>
+                    <p>
+                        Juan era un estudiante modelo en el colegio Don Bosco: sacaba excelentes notas, participaba en actividades extracurriculares y era querido por sus profesores. Sin embargo, como muchos adolescentes, pasaba varias horas al día en redes sociales.
+                    </p>
+                    <p>
+                        Un viernes por la tarde, molesto por una nota que consideraba injusta, Juan publicó un meme burlándose de uno de sus profesores. Lo compartió en un grupo privado de WhatsApp con sus amigos más cercanos, pensando que quedaría ahí. "Es solo una broma entre nosotros", pensó.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">La Viralización: Cuando lo Digital se Vuelve Real</h3>
+                    <p>
+                        Para el lunes por la mañana, el meme había sido compartido más de 200 veces. Había saltado de grupo en grupo, llegando incluso a padres de familia y otros profesores. Lo que era una broma privada se había convertido en un escándalo escolar.
+                    </p>
+                    <p>
+                        Juan no solo había dañado su relación con el profesor, sino que había perdido la confianza de muchos de sus compañeros y docentes. La dirección del colegio tuvo que intervenir. Su expediente académico, hasta ese momento impecable, ahora tenía una mancha significativa.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">El Proceso de Reflexión</h3>
+                    <p>
+                        En lugar de simplemente castigar a Juan, el colegio Don Bosco implementó un programa de mediación. Se le asignó trabajar con la coordinadora de convivencia y participar en talleres sobre ciudadanía digital.
+                    </p>
+                    <p>
+                        Durante estas sesiones, Juan comprendió varios conceptos cruciales:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>La permanencia digital:</strong> Todo lo que publicas en internet deja una huella que puede ser difícil o imposible de borrar.</li>
+                        <li><strong>El efecto multiplicador:</strong> En redes sociales, el contenido puede propagarse exponencialmente en cuestión de minutos.</li>
+                        <li><strong>El impacto real:</strong> Detrás de cada pantalla hay personas reales con sentimientos que pueden ser heridos.</li>
+                        <li><strong>La responsabilidad compartida:</strong> Cada persona que comparte contenido inapropiado es parte del problema.</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">La Transformación: De Problema a Solución</h3>
+                    <p>
+                        Juan decidió que su error podía convertirse en una oportunidad de aprendizaje para otros. Con el apoyo de la dirección del colegio, creó un proyecto llamado "Piensa Antes de Publicar".
+                    </p>
+                    <p>
+                        El proyecto incluía:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Talleres en los que compartía su experiencia con estudiantes de grados menores</li>
+                        <li>Una campaña de concientización en redes sociales del colegio</li>
+                        <li>La creación de un protocolo de uso responsable de tecnología para el colegio</li>
+                        <li>Sesiones de orientación para padres sobre cómo guiar a sus hijos en el mundo digital</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">Las Lecciones Aprendidas</h3>
+                    <p>
+                        La historia de Juan nos deja reflexiones importantes:
+                    </p>
+                    <div class="bg-indigo-50 border-l-4 border-brand-primary p-6 my-6 rounded-r-xl">
+                        <p class="font-semibold text-slate-900 mb-2">💡 No existe lo "privado" en internet</p>
+                        <p class="text-sm">Cualquier contenido digital puede ser capturado, compartido y viralizado sin tu control.</p>
+                    </div>
+                    <div class="bg-indigo-50 border-l-4 border-brand-primary p-6 my-6 rounded-r-xl">
+                        <p class="font-semibold text-slate-900 mb-2">⏱️ Pausa antes de publicar</p>
+                        <p class="text-sm">Tómate 24 horas antes de publicar contenido cuando estés molesto o emocionado.</p>
+                    </div>
+                    <div class="bg-indigo-50 border-l-4 border-brand-primary p-6 my-6 rounded-r-xl">
+                        <p class="font-semibold text-slate-900 mb-2">🔄 Los errores pueden ser oportunidades</p>
+                        <p class="text-sm">Reconocer un error y trabajar para enmendarlo muestra verdadero carácter.</p>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8">El Impacto Actual</h3>
+                    <p>
+                        Hoy, dos años después del incidente, Juan es un embajador de ciudadanía digital en su colegio. Ha dado charlas en otros colegios de la zona y su proyecto "Piensa Antes de Publicar" ha sido adoptado por varias instituciones educativas.
+                    </p>
+                    <p>
+                        Su historia demuestra que, aunque los errores en el mundo digital pueden tener consecuencias serias, también pueden ser el inicio de un cambio positivo. La clave está en asumir responsabilidad, aprender de la experiencia y usar ese conocimiento para ayudar a otros.
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-brand-primary to-brand-accent text-white p-8 rounded-2xl mt-10">
+                        <h4 class="text-2xl font-bold mb-4">La Reflexión Final de Juan</h4>
+                        <p class="text-lg italic">
+                            "Pensé que estaba siendo gracioso con mis amigos. No pensé en las consecuencias. Ahora sé que cada vez que publico algo, me pregunto: ¿Esto construye o destruye? ¿Me sentiría orgulloso de que mi familia lo viera? Si la respuesta es no, entonces no lo publico. Es así de simple."
+                        </p>
+                        <p class="mt-4 text-indigo-100">— Juan, estudiante de 5to de secundaria</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. BLOG / ARTÍCULOS -->
+    <section id="blog" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h3 class="text-3xl font-heading font-bold text-slate-900">Todos Nuestros Artículos</h3>
+                <p class="text-slate-500 mt-2">Novedades y guías profundas sobre ciudadanía digital.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Configurar privacidad en redes sociales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2 py-1 rounded mb-3 inline-block">Tutorial</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">Configura tu privacidad en 5 pasos</h4>
+                        <p class="text-slate-500 text-sm mb-4">Aprende a blindar tus redes sociales contra extraños y bots maliciosos.</p>
+                        <a href="articulo-1.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal" style="transition-delay: 100ms;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.ctfassets.net/5i1m3im8l2b5/3TyQf9seoxbjaX3vTHJaSC/3f4faa66255e75fbc2fb1b033bf0a59d/remote-access-view-control-android-phones-tablets.jpg?w=450&h=300&fl=progressive&q=85&fm=jpg&fit=fill" alt="Adicción al móvil" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded mb-3 inline-block">Reflexión</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">¿Controlas tu móvil o él a ti?</h4>
+                        <p class="text-slate-500 text-sm mb-4">Señales claras de que necesitas un "detox" digital urgente este fin de semana.</p>
+                        <a href="articulo-2.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal" style="transition-delay: 200ms;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://d29jy8ovkd5kcx.cloudfront.net/wp-content/uploads/2022/08/17164912/Phishing-Nica-de-autor.jpg" alt="Phishing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded mb-3 inline-block">Seguridad</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">Phishing: No caigas en la trampa</h4>
+                        <p class="text-slate-500 text-sm mb-4">Cómo identificar correos falsos que intentan robar tus credenciales bancarias.</p>
+                        <a href="articulo-3.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal" style="transition-delay: 300ms;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://lordkelvin.edu.pe/wp-content/uploads/2021/06/ciberacoso-2-1024x576.jpg" alt="Ciberacoso" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded mb-3 inline-block">Prevención</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">Ciberacoso: Identifica y Responde</h4>
+                        <p class="text-slate-500 text-sm mb-4">Guía completa para reconocer acoso digital y tomar acciones legales.</p>
+                        <a href="articulo-4.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal" style="transition-delay: 400ms;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.coe.int/documents/16695/264502602/0/5e531eb1-f367-a910-24ea-05247119583d" alt="Fake News" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded mb-3 inline-block">Educación</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">Fake News: Después de Publicar, Piensa</h4>
+                        <p class="text-slate-500 text-sm mb-4">Herramientas para verificar información y evitar propagar mentiras en línea.</p>
+                        <a href="articulo-5.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group reveal" style="transition-delay: 500ms;">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://media.es.wired.com/photos/639ccac36bdaaed6a29421f5/16:9/w_2560%2Cc_limit/Huella-digital-738789045.jpg" alt="Huella digital" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded mb-3 inline-block">Reflexión</span>
+                        <h4 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-primary transition">Tu Huella Digital: Lo que Dejas Atrás</h4>
+                        <p class="text-slate-500 text-sm mb-4">Por qué tu presencia en línea importa hoy y para tu futuro profesional.</p>
+                        <a href="articulo-6.html" class="text-sm font-bold text-slate-800 hover:text-brand-primary">Leer más &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GALERÍA / CARRUSEL -->
+    <section class="py-16 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 text-center">Galería Educativa</h3>
+        </div>
+        
+        <div class="relative w-full max-w-5xl mx-auto group">
+            <!-- Carousel Container -->
+            <div class="overflow-hidden rounded-2xl shadow-2xl aspect-video relative">
+                <div id="carousel-track" class="flex transition-transform duration-500 ease-out h-full">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Trabajo Colaborativo Seguro" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                            <p class="font-bold text-lg">Trabajo Colaborativo Seguro</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Protección de Datos" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                            <p class="font-bold text-lg">Protección de Datos</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0 relative">
+                        <img src="https://img.computing.es/wp-content/uploads/2024/02/13142957/MUNDO-DIGITAL.jpg" alt="Futuro Digital" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                            <p class="font-bold text-lg">Futuro Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white transition text-slate-800 z-10 opacity-0 group-hover:opacity-100" title="Anterior" aria-label="Anterior">`
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg hover:bg-white transition text-slate-800 z-10 opacity-0 group-hover:opacity-100" title="Siguiente" aria-label="Siguiente">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- 8. RECURSOS ÚTILES -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-brand-primary font-bold tracking-widest uppercase text-sm mb-2">Recursos</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-bold text-slate-900">Aprende más con estos recursos</h3>
+                <p class="text-slate-600 mt-4">Plataformas de confianza para profundizar en ciudadanía digital y seguridad en línea.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Recurso 1 -->
+                <a href="https://safety.google/intl/es_ALL/" target="_blank" rel="noopener noreferrer" class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100 reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-2xl">G</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">Google Safety Center</h4>
+                            <p class="text-sm text-slate-500">Centro de Seguridad Google</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Recursos oficiales de Google sobre privacidad, seguridad y protección de datos. Aprende a configurar tus contraseñas y permisos.</p>
+                    <span class="inline-flex items-center gap-2 text-brand-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Visitar sitio
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <!-- Recurso 2 -->
+                <a href="https://internetsafety101.org/" target="_blank" rel="noopener noreferrer" class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100 reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold text-2xl">I</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">Internet Safely</h4>
+                            <p class="text-sm text-slate-500">Portal de Seguridad en Línea</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Plataforma internacional dedicada a la educación en seguridad digital para jóvenes. Cursos interactivos y material educativo.</p>
+                    <span class="inline-flex items-center gap-2 text-brand-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Visitar sitio
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <!-- Recurso 3 -->
+                <a href="https://envivo.perueduca.pe/capacitacion-cierre-brecha-digital/materiales/presentacion-cbd2704.pdf" target="_blank" rel="noopener noreferrer" class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100 reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center text-white font-bold text-2xl">C</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">Ciudadanía Digital</h4>
+                            <p class="text-sm text-slate-500">Iniciativa Educativa</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Programas de formación y guías sobre ciudadanía digital responsable. Recursos para estudiantes, padres y educadores.</p>
+                    <span class="inline-flex items-center gap-2 text-brand-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Visitar sitio
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+
+                <!-- Recurso 4 -->
+                <a href="https://www.protecciondemenores.org/" target="_blank" rel="noopener noreferrer" class="group p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100 reveal">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center text-white font-bold text-2xl">P</div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900">Protección de Menores</h4>
+                            <p class="text-sm text-slate-500">Ciberprotecciones</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4">Organización dedicada a la protección de menores en línea. Recursos, denuncias y orientación legal para familias.</p>
+                    <span class="inline-flex items-center gap-2 text-brand-primary font-semibold group-hover:translate-x-1 transition-transform">
+                        Visitar sitio
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4 text-white">
+                        <div class="w-8 h-8 bg-brand-primary rounded flex items-center justify-center font-bold">E</div>
+                        <span class="font-heading font-bold text-xl">Entornos Virtuales</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm">
+                        Proyecto educativo dedicado a fomentar una cultura digital responsable, segura y positiva para estudiantes y profesionales.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Mapa del Sitio</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#importancia" class="hover:text-brand-accent transition">Importancia</a></li>
+                        <li><a href="#riesgos" class="hover:text-brand-accent transition">Riesgos</a></li>
+                        <li><a href="#practicas" class="hover:text-brand-accent transition">Buenas Prácticas</a></li>
+                        <li><a href="#blog" class="hover:text-brand-accent transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="terminos.html" class="hover:text-brand-accent transition">Términos de Uso</a></li>
+                        <li><a href="privacidad.html" class="hover:text-brand-accent transition">Privacidad</a></li>
+                        <li><a href="mailto:info@entornosvirtuales.edu" class="hover:text-brand-accent transition">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2025 Uso Responsable de Entornos Virtuales. Todos los derechos reservados.</p>
+                <p class="mt-2 md:mt-0 text-brand-primary font-semibold">
+                    Desarrollado por César Calle – Full-Stack Developer
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // 2. Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // 3. Navbar Background on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'shadow-md');
+                navbar.classList.remove('bg-white/80', 'shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white/90', 'shadow-md');
+                navbar.classList.add('bg-white/80', 'shadow-sm');
+            }
+        });
+
+        // 4. Carousel Logic
+        const track = document.getElementById('carousel-track');
+        const slides = track.children;
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const width = slides[0].getBoundingClientRect().width;
+            track.style.transform = 'translateX(-' + (width * currentIndex) + 'px)';
+        }
+
+        function autoplay() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        // Autoplay every 5 seconds
+        setInterval(autoplay, 5000);
+
+        // Handle resize
+        window.addEventListener('resize', updateCarousel);
+
+        // 5. Story Modal Functions
+        function openStory() {
+            document.getElementById('storyModal').classList.remove('hidden');
+        }
+
+        function closeStory() {
+            document.getElementById('storyModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('storyModal').addEventListener('click', (e) => {
+            if (e.target.id === 'storyModal') {
+                closeStory();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fake News: Después de Publicar, Piensa. Herramientas para verificar información y evitar propagar mentiras en línea.">
+    <meta name="keywords" content="fake news, desinformación, verificación de hechos, información falsa, media literacy">
+    <meta property="og:title" content="Fake News: Después de Publicar, Piensa">
+    <meta property="og:description" content="Aprende a identificar y combatir la desinformación en redes sociales.">
+    <title>Fake News: Después de Publicar, Piensa | Entornos Virtuales</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            primary: '#4f46e5',
+                            accent: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #4f46e5; border-radius: 5px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-accent rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">E</div>
+                    <span class="font-heading font-bold text-xl text-slate-800">Entornos<span class="text-brand-primary">Virtuales</span></span>
+                </a>
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-brand-primary transition">← Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="mb-12">
+                <span class="text-xs font-bold text-red-600 bg-red-50 px-3 py-1.5 rounded-full">Reflexión</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-6 mb-6">
+                    Fake News: Después de Publicar, Piensa
+                </h1>
+                <div class="flex items-center gap-4 text-slate-500 text-sm">
+                    <span>⏱️ 11 min de lectura</span>
+                    <span>•</span>
+                    <span>📅 Diciembre 2025</span>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://www.coe.int/documents/16695/264502602/0/5e531eb1-f367-a910-24ea-05247119583d" alt="Desinformación en internet" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Main Content Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Sidebar Table of Contents -->
+                <aside class="lg:col-span-1">
+                    <div class="sticky top-32 space-y-6">
+                        <!-- Progress Bar -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Progreso de lectura</p>
+                            <div class="w-full bg-slate-200 rounded-full h-2">
+                                <div id="progressBar" class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">Desplázate para ver tu progreso</p>
+                        </div>
+
+                        <!-- Table of Contents -->
+                        <nav class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 shadow-sm border border-red-200">
+                            <h3 class="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                                <span class="text-lg">📑</span> Tabla de Contenidos
+                            </h3>
+                            <ul id="toc" class="space-y-3 text-sm">
+                                <li><a href="#queesiakenews" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Qué es?</a></li>
+                                <li><a href="#porquecreemos" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Por qué creemos?</a></li>
+                                <li><a href="#señales" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Señales</a></li>
+                                <li><a href="#herramientas" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Herramientas</a></li>
+                                <li><a href="#metododosift" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Método SIFT</a></li>
+                                <li><a href="#responsabilidad" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> Responsabilidad</a></li>
+                                <li><a href="#quehacer" class="text-brand-primary hover:text-indigo-700 font-medium transition flex items-center gap-2"><span class="text-xs">▶</span> ¿Qué Hacer?</a></li>
+                            </ul>
+                        </nav>
+
+                        <!-- Share -->
+                        <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200">
+                            <p class="text-xs font-bold text-slate-600 uppercase tracking-wide mb-3">Compartir</p>
+                            <div class="flex gap-2">
+                                <button onclick="shareOnFacebook()" class="flex-1 p-2 bg-blue-600 text-white rounded-lg text-xs font-semibold hover:bg-blue-700 transition">F</button>
+                                <button onclick="shareOnTwitter()" class="flex-1 p-2 bg-sky-500 text-white rounded-lg text-xs font-semibold hover:bg-sky-600 transition">𝕏</button>
+                                <button onclick="shareOnWhatsApp()" class="flex-1 p-2 bg-green-600 text-white rounded-lg text-xs font-semibold hover:bg-green-700 transition">Wa</button>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lg:col-span-3">
+                    <div class="prose prose-lg max-w-none text-slate-600 space-y-6">
+                        <p class="text-xl text-slate-700 font-medium leading-relaxed">
+                            En la era digital, la información viaja más rápido que nunca. Pero aquí viene el problema: la verdad también viaja, pero lo hace más lentamente que la mentira. Las "fake news" se esparcen seis veces más rápido que la verdad en redes sociales.
+                        </p>
+                        
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 my-8 rounded-r-xl">
+                            <p class="font-semibold text-slate-900 mb-2">📊 Estadística preocupante</p>
+                            <p class="text-sm">62% de los adultos en redes sociales reciben noticias allí. Solo el 16% verifica las fuentes antes de compartir. Esto significa que millones de personas propagan información sin verificar.</p>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-0" id="queesiakenews">¿Qué es una Fake News?</h2>
+                        <p>Una "fake news" (noticia falsa) es información deliberadamente falsa o engañosa que se presenta como si fuera verdadera. Incluye:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li><strong>Noticias completamente fabricadas:</strong> Historias inventadas de cero</li>
+                            <li><strong>Noticias parcialmente falsas:</strong> Mezcla de hechos reales con información falsa</li>
+                            <li><strong>Desinformación:</strong> Información falsa difundida sin intención de engañar</li>
+                            <li><strong>Contenido manipulado:</strong> Real presentado fuera de contexto</li>
+                            <li><strong>Satira/Parodia:</strong> Falso presentado como broma</li>
+                        </ul>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="porquecreemos">¿Por Qué Creemos en Fake News?</h2>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">1. 🎯 El Sesgo de Confirmación</h3>
+                        <p>Tendemos a creer información que confirma nuestras creencias preexistentes, incluso si no es verdad.</p>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">2. 😡 Emociones Fuertes</h3>
+                        <p>Las fake news suelen provocar ira, miedo o indignación. Cuando estamos emocionados, nuestro pensamiento crítico se apaga.</p>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">3. 🎓 Autoridad Percibida</h3>
+                        <p>Si una "noticia" viene con fotos, logos o citas de "expertos", parece más verdadera, aunque sea falsa.</p>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">4. ⏰ Llamadas a la Acción</h3>
+                        <p>"¡Comparte esto antes de que lo eliminen!" "¡Todos deben saber esto!" Estos llamados nos presionan a compartir sin pensar.</p>
+
+                        <h3 class="text-xl font-bold text-slate-800 mt-6">5. 🔁 Repetición</h3>
+                        <p>Cuanto más oímos una mentira, más verdadera nos parece. Este efecto se llama "ilusión de verdad".</p>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="señales">Señales de Alerta: ¿Cómo Identificar Fake News?</h2>
+
+                        <div class="grid md:grid-cols-2 gap-6 my-8">
+                            <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                                <h4 class="font-bold text-slate-900 mb-3">⚠️ Señales Técnicas</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>✗ URL similar pero no exacta</li>
+                                    <li>✗ Errores ortográficos graves</li>
+                                    <li>✗ Imágenes de baja calidad</li>
+                                    <li>✗ Diseño poco profesional</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                                <h4 class="font-bold text-slate-900 mb-3">⚠️ Señales de Contenido</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>✗ Título sensacionalista</li>
+                                    <li>✗ Lenguaje muy emocional</li>
+                                    <li>✗ Sin fuentes citadas</li>
+                                    <li>✗ Citas fuera de contexto</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                                <h4 class="font-bold text-slate-900 mb-3">⚠️ Señales Lógicas</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>✗ Contradictorio con hechos conocidos</li>
+                                    <li>✗ Afirmaciones sin evidencia</li>
+                                    <li>✗ Generalizaciones extremas</li>
+                                    <li>✗ "Todo el mundo sabe..."</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+                                <h4 class="font-bold text-slate-900 mb-3">⚠️ Señales de Presión</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>✗ "¡Comparte rápido!"</li>
+                                    <li>✗ "Antes de que lo eliminen"</li>
+                                    <li>✗ "Esto va a cambiar tu vida"</li>
+                                    <li>✗ "Solo 3 personas lo saben"</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="herramientas">Herramientas de Verificación</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-slate-900">🔍 Google Reverse Image Search</h4>
+                                <p class="text-sm mt-1">Busca si una imagen ha sido usada en otro contexto (indicador de desinformación)</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-slate-900">✔️ Snopes.com</h4>
+                                <p class="text-sm mt-1">Verificador de hechos especializado en debunking de mitos urbanos y fake news</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-slate-900">📰 FactCheck.org</h4>
+                                <p class="text-sm mt-1">Análisis de declaraciones políticas y verificación de hechos reales</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-slate-900">🌐 NewsGuard</h4>
+                                <p class="text-sm mt-1">Califica la confiabilidad de fuentes de noticias</p>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-bold text-slate-900">📱 Verificabot (Telegram/WhatsApp)</h4>
+                                <p class="text-sm mt-1">Bot que verifica noticias virales automáticamente</p>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="metododosift">El Método SIFT (Verificación en 4 Pasos)</h2>
+                        
+                        <div class="space-y-4 my-8">
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-red-500">
+                                <span class="text-2xl flex-shrink-0">🔍</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Stop (S) - Detente</h4>
+                                    <p class="text-sm">Antes de compartir, detente por un segundo. ¿Sientes una emoción fuerte? Eso es una señal de alerta.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-red-500">
+                                <span class="text-2xl flex-shrink-0">🔎</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Investigate (I) - Investiga</h4>
+                                    <p class="text-sm">Busca el titular en Google. ¿Aparece en medios confiables? ¿O solo en sitios desconocidos?</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-red-500">
+                                <span class="text-2xl flex-shrink-0">🔗</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Find (F) - Encuentra la fuente</h4>
+                                    <p class="text-sm">Haz clic en la fuente principal. ¿Es confiable? ¿Tiene secciones "Acerca de"? ¿Quién la financia?</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-slate-50 rounded-lg border-l-4 border-red-500">
+                                <span class="text-2xl flex-shrink-0">🤔</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Trace (T) - Rastrea</h4>
+                                    <p class="text-sm">¿De dónde viene la afirmación? ¿Quién fue el primero en decirlo? ¿Hay evidencia original?</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="responsabilidad">Tu Responsabilidad en Redes Sociales</h2>
+                        
+                        <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                            <h4 class="font-bold text-slate-900 mb-4">✅ Compromiso del Usuario Responsable:</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li><strong>Verifica antes de compartir:</strong> Es tu responsabilidad asegurar que lo que compartes es verdadero.</li>
+                                <li><strong>Busca contexto:</strong> No solo leas el titular. Lee el artículo completo.</li>
+                                <li><strong>Cuestiona tu sesgo:</strong> ¿Estoy creyendo esto porque quiero que sea verdad?</li>
+                                <li><strong>Expande tus fuentes:</strong> Lee noticias de múltiples perspectivas.</li>
+                                <li><strong>Aprende media literacy:</strong> Es una habilidad del siglo XXI, tan importante como leer.</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="text-3xl font-bold text-slate-900 mt-12" id="quehacer">¿Qué Hacer si Compartiste Fake News?</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex gap-4 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">1️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Admítelo</h4>
+                                    <p class="text-sm">No es vergüenza. A todos nos engañan. Lo importante es reconocerlo.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">2️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Elimina o edita el post</h4>
+                                    <p class="text-sm">Bórralo o añade una corrección clara que diga que era información falsa.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">3️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Comparte la corrección</h4>
+                                    <p class="text-sm">Publica un mensaje corrigiendo la desinformación. Así ayudas a otros que vieron lo falso.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                                <span class="text-2xl flex-shrink-0">4️⃣</span>
+                                <div>
+                                    <h4 class="font-bold text-slate-900">Aprende la lección</h4>
+                                    <p class="text-sm">La próxima vez verificarás. No eres malo por haber compartido fake news, solo eres humano.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+<!-- Recommended Articles -->
+<div class="mt-16 pt-12 border-t border-slate-200">
+    <h3 class="text-2xl font-bold text-slate-900 mb-8">📚 Artículos Recomendados</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Article Card 1 -->
+        <a href="articulo-4.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://lordkelvin.edu.pe/wp-content/uploads/2021/06/ciberacoso-2-1024x576.jpg"
+                     alt="Ciberacoso"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Ciberacoso: Identifica y Responde</h4>
+            <p class="text-sm text-slate-600">Protégete contra el acoso digital</p>
+        </a>
+
+        <!-- Article Card 2 -->
+        <a href="articulo-6.html" class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-xl h-52 mb-4">
+                <img src="https://www.servnet.mx/hs-fs/hubfs/Blog/Blog_Art%C3%ADculos/Blog_Art%C3%ADculos_2021/Blog_Art%C3%ADculos_2021_Diciembre/Blog_Art%C3%ADculos_2021_Diciembre_Art113_HLD/La-identidad-digital-es-lo-mismo-que-la-huella-digital.jpg?width=900&name=La-identidad-digital-es-lo-mismo-que-la-huella-digital.jpg"
+                     alt="Huella Digital"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+            </div>
+            <h4 class="font-bold text-slate-900 group-hover:text-brand-primary transition">Tu Huella Digital: ¿Qué Dejas?</h4>
+            <p class="text-sm text-slate-600">Gestiona tu presencia en línea</p>
+        </a>
+
+    </div>
+</div>
+
+            <!-- Comments Section -->
+            <div class="mt-16 pt-12 border-t border-slate-200">
+                <h3 class="text-2xl font-bold text-slate-900 mb-8">💬 Comentarios</h3>
+                
+                <!-- Comment Form -->
+                <div class="bg-gradient-to-br from-red-50 to-pink-50 p-8 rounded-xl border border-red-200 mb-8">
+                    <h4 class="font-bold text-slate-900 mb-4">Deja tu comentario</h4>
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Tu nombre" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-red-500">
+                        <textarea placeholder="Tu comentario..." rows="4" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-red-500"></textarea>
+                        <button type="submit" class="px-6 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition">Publicar Comentario</button>
+                    </form>
+                </div>
+
+                <!-- Comments List -->
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">C</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Carlos Mendoza</h4>
+                                        <p class="text-xs text-slate-500">20 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">Excelente artículo. Compartí sin pensar una noticia hace poco y este método SIFT me hubiera salvado. Ahora verifico todo antes de publicar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0">L</div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Laura Iglesias</h4>
+                                        <p class="text-xs text-slate-500">18 de enero, 2025</p>
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-sm mt-2">¿Alguien más comparte noticias sin leer? Culpable. Esto me ha abierto los ojos. La desinformación es más peligrosa de lo que creía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Uso Responsable de Entornos Virtuales. Todos los derechos reservados.</p>
+            <p class="mt-2 text-brand-primary font-semibold">
+                Desarrollado por César Calle – Full-Stack Developer
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function updateProgressBar() {
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercentage + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // Share Functions
+        function getPageTitle() {
+            return document.querySelector('h1').textContent;
+        }
+
+        function getPageUrl() {
+            return window.location.href;
+        }
+
+        function shareOnFacebook() {
+            const url = getPageUrl();
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+        }
+
+        function shareOnTwitter() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(twitterUrl, 'twitter-share', 'width=800,height=600');
+        }
+
+        function shareOnWhatsApp() {
+            const title = getPageTitle();
+            const url = getPageUrl();
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${title} - ${url}`)}`;
+            window.location.href = whatsappUrl;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
